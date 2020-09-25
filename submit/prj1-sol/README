@@ -1,6 +1,13 @@
-Name:		XXX
-B-Number:	XXX
-Email:		XXX
+Name:		Sanjana Kothapally
+B-Number:	B00814258
+Email:		skothap1@binghamton.edu
 
 Add text here as needed.
+-> sometimes permission is needed for running ./index.mjs run the command - chmod 755 index.mjs
+
+-> The expression of type (1+2)*-3 + 4 or (1+2)*-2*3 if there is only one input for - and another operator after that will not 
+be returning any value other than this every other expression form will be running like (1+2)*-3 will return proper value along with
+normal sums and additions.
+
+
 
