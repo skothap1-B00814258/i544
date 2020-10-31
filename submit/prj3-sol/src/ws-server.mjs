@@ -42,6 +42,9 @@ const CORS_OPTIONS = {
 const BASE = 'api';
 const STORE = 'store';
 
+/**
+ * setting up routes for different methods according to the URL pattern.
+ */
 
 function setupRoutes(app) {
   app.use(cors(CORS_OPTIONS));  //needed for future projects
@@ -63,6 +66,11 @@ function setupRoutes(app) {
 /****************************** Handlers *******************************/
 
 //@TODO
+/**
+ * Handler for the get request, retrieves the entire data from the 
+ * spreadsheet by calling readFormulas method which returns the list of
+ * pairs with cellId and formula related to it.
+ */
 
 function doList(app){
   return (async function(req, res) {
@@ -81,6 +89,12 @@ function doList(app){
   });
 }
 
+/**
+ * This method is the handler of delete request with the spreadsheet name
+ * in the URL, calls the clear method of the database store with the
+ * spreadsheet name retrieved from the URL using : operator
+ */
+
 function doDelete(app){
    return (async function(req, res) {
 	const name = req.params.ssname;
@@ -96,6 +110,16 @@ function doDelete(app){
 
 }
 
+/**
+ * Handler for the Patch method, updates the data from the requested URL
+ * body which is list of pairs. The method takes the ssname from the URL
+ * using req.params. Converts the list of pairs to Object format with cell
+ * id as property and value as formula using Object.fromEntries method
+ * calls the updateCell method from db_ss_store for every property in obj.
+ *
+ * As Object.fromEntries converts only an Map or a list of lists to a 
+ * Object other than these types it throws an error.
+ */
 
 function doUpdate(app){
    return (async function(req, res) {
@@ -130,6 +154,14 @@ function doUpdate(app){
    });	   
 }
 
+/**
+ * Handler for PUT request, clears the spreadsheet and replaces the 
+ * spreadsheet with the given data.
+ *
+ * calls the db_ss_store clear method() and then calls the update
+ * method on the given cells in the body of the request.
+ */
+
 function doReplace(app){
  return (async function (req, res) {
       try {
@@ -161,6 +193,12 @@ function doReplace(app){
 
 }
 
+/**
+ * Handles the Delete cell for the specific cellId retrieves the id and the
+ * spreadsheet name and calls the delete method of db_ss_store with cellid 
+ * and ssname.
+ */
+
 function doDeleteCell(app){
    return (async function (req, res) {
       try{
@@ -177,6 +215,13 @@ function doDeleteCell(app){
 
    });
 }
+
+/**
+ * Handler for both patch and put method with specific cell, if the body has the 
+ * formula property then retrieves the params and calls the updateCell
+ * method with id, ssname, and formula  else sends a request with status
+ * 400 and error message.
+ */
 
 function doUpdateCell(app){
    return (async function (req, res) {
