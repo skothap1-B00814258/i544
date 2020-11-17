@@ -176,15 +176,15 @@ function doHome(app){
         const model = {};
         let error = validateUpdate(req.body, errors);
         if (error !== true){
-        console.log(errors, error);
-        console.log(req.body);
+     //   console.log(errors, error);
+     //   console.log(req.body);
       //  if(req.body.hasOwnProperty('ssAct')){
         for (let i in req.body){
-          console.log(i);
+       //   console.log(i);
             const name = i;
             const extraInfo = {value: req.body[name]};
             if (errors[name]) extraInfo.errorMessage = errors[name];
-            console.log(name, extraInfo);
+         //   console.log(name, extraInfo);
             error_m[name] = extraInfo;
         }
    //   }
@@ -193,7 +193,7 @@ function doHome(app){
          // console.log(error_m);
       }
         if(error_m.hasOwnProperty('ssAct')){
-        console.log(error_m['ssAct'].value);
+      //  console.log(error_m['ssAct'].value);
         if (error_m['ssAct'].value === 'clear'){ checked['clear'] = "checked";};
         if (error_m['ssAct'].value === 'deleteCell'){checked['deleteCell'] = "checked"};
         if (error_m['ssAct'].value === 'updateCell'){checked['updateCell'] = "checked"};
@@ -231,7 +231,7 @@ function doHome(app){
           res.redirect(`${sname}`);
        }
       }catch(err){
-         console.log(err); 
+        // console.log(err); 
         // console.log(err.code, err.message);
          if(err.code === 'CIRCULAR_REF' || err.code === 'SYNTAX'){
                 for(let i in req.body){
@@ -240,7 +240,7 @@ function doHome(app){
                   error_m[name] = extraInfo
                 }
               error_m['formula'].errorMessage = err.message;
-              console.log(error_m);
+          //    console.log(error_m);
               if (error_m['ssAct'].value === 'clear'){ checked['clear'] = "checked";};
               if (error_m['ssAct'].value === 'deleteCell'){checked['deleteCell'] = "checked"};
               if (error_m['ssAct'].value === 'updateCell'){checked['updateCell'] = "checked"};
