@@ -308,9 +308,9 @@ function table_view(rows, columns, darray, spObj, spName){
     u: 21, v: 22, w: 23, x: 24, y: 25, z: 26
    }
   for(let i = 0; i <= rows; i++){
-    array_ss.push([0]);
+    array_ss.push(['']);
     for(let j = 0; j <= columns; j++){
-            array_ss[i][j] = 0;
+            array_ss[i][j] = '';
     }
   }
   // console.log(array_ss);
