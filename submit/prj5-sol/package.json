@@ -1,0 +1,31 @@
+{
+  "name": "prj5-sol",
+  "version": "1.0.0",
+  "description": "Name:\t\tSanjana Kothapally B-Number:\tB00814258 Email:\t\tskothap1@binghamton.edu",
+  "main": "webpack.config.js",
+  "dependencies": {
+    "axios": "^0.21.0",
+    "cs544-ss": "file:../../../../../cs544/lib/cs544-ss",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.12.9",
+    "@babel/preset-react": "^7.12.7",
+    "babel-loader": "^8.2.2",
+    "copy-webpack-plugin": "^6.3.2",
+    "ignore-loader": "^0.1.2",
+    "webpack": "^5.10.0",
+    "webpack-cli": "^4.2.0",
+    "webpack-dev-server": "^3.11.0"
+  },
+  "scripts": {
+    "start": "webpack serve --mode development",
+    "build:dev": "NODE_ENV=development webpack  --mode development;",
+    "build:prod": "mkdir -p prod; NODE_ENV=production webpack --mode production -o prod;",
+    "clean": "rm -rf dist prod"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
+}

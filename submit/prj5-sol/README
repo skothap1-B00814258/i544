@@ -1,0 +1,9 @@
+Name:		Sanjana Kothapally
+B-Number:	B00814258
+Email:		skothap1@binghamton.edu
+
+-> re-render does not work for menu options popup but if we reload the spreadsheet
+   values will be proper.
+-> array size is limited to 10 X 10
+-> implemented the logic for error catching in spreadsheet component but doesnt catch it.
+
